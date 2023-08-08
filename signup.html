@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <title>Sign Up Page</title>
+    <style>
+        .body-container
+        {
+            display: flex;
+            font-family: "Poppins";
+            width: 100%;
+            height: 100vh;
+            justify-content: center;
+            align-items: center ;
+            background-image: linear-gradient(-135deg,#c850c0,#4158d0);
+        }
+        .main-container
+        {
+
+            display: flex;
+            width: 800px;
+            height: 500px;
+            background-color: white;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+        .row
+        {
+            display: flex;
+            width: 80%;
+            height: 70%;
+        }
+        .col1
+        {
+            width: 50%;
+            height: 100%;
+            background-image: url(/static/login_!.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .col2
+        {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .row1
+        {
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ip, .ip1
+        {
+            padding-left: 20px;
+            height:60%; 
+            width: 70%;
+            border: none;
+            background: #e6e6e6;;
+            border-radius: 25px;
+        }
+        .ip1
+        {
+            padding: 0px;
+            background-color: #57b846;
+        }
+        a
+        {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="body-container">
+
+    <form action="/signup/" method="post"> {% csrf_token %}
+        <div class="main-container">
+            <div class="row">
+                <div class="col1">
+    
+                </div>
+                <div class="col2">
+                    <div class="row1">
+                        
+                        {% if passmm %}<h4>***Password miss match***</h4>
+                        {% elif alreadyexists %}<h4>***Username already exists***</h4>
+                        {% else %} <h3>Sign Up </h3>    {% endif %}
+
+                    </div>
+                    <div class="row1">
+                            <input class="ip" placeholder="User Name" type="text" name="uname" id="" required>
+                    </div>
+                    <div class="row1">
+                            <input class="ip" placeholder="Email id" type="text" name="emailid" id="" required>
+                    </div>
+                    <div class="row1">
+                            <input class="ip" placeholder="Password" type="Password" name="pass1" id="" required>
+                    </div>
+                    <div class="row1">
+                            <input class="ip" placeholder="Confirm Password" type="Password" name="pass2" id="" required>
+                    </div>
+                    <div class="row1">
+                            <input class="ip1" type="submit" value="Create account" name="sign_up_btn" id="" required>
+                    </div>
+                    <div class="row1">
+                            Existing User? &nbsp;<a href="/login/">Login..</a>
+                    </div>
+    
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>
