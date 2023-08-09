@@ -7,7 +7,7 @@ app = Flask(__name__)
 def greeting():
     return 'Hello world!'
 
-@app.route("/calculator/add", methods=['POST'])
+@app.route("/calculator/add", methods=['P   OST'])
 def add():
     data = request.json
     first = data.get('first', 0)
@@ -23,7 +23,7 @@ def subtract():
     s = data.get('second', 0)
     r = f - s
     response = {'result ' : r}
-
+    #hello
     return jsonify(response),200
 
 if __name__ == '__main__':
